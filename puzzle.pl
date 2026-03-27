@@ -1,17 +1,17 @@
 % Estatisticas de Tempo
 
 medir_tempo :-
-    statics(cputime, T1),
+    statistics(cputime, T1),
 
 % Predicado modelo/1
 
 [
-    (Mochila_1, Nome_1, Mes_1, Jogo_1, Materia_1, Suco_1);
-    (Mochila_2, Nome_2, Mes_2, Jogo_2, Materia_2, Suco_2);
-    (Mochila_3, Nome_3, Mes_3, Jogo_3, Materia_3, Suco_3);
-    (Mochila_4, Nome_4, Mes_4, Jogo_4, Materia_4, Suco_4);
+    (Mochila_1, Nome_1, Mes_1, Jogo_1, Materia_1, Suco_1),
+    (Mochila_2, Nome_2, Mes_2, Jogo_2, Materia_2, Suco_2),
+    (Mochila_3, Nome_3, Mes_3, Jogo_3, Materia_3, Suco_3),
+    (Mochila_4, Nome_4, Mes_4, Jogo_4, Materia_4, Suco_4),
     (Mochila_5, Nome_5, Mes_5, Jogo_5, Materia_5, Suco_5)
-]
+],
 
 % Mochila
 
@@ -42,7 +42,7 @@ alldifferent([Mochila_1, Mochila_2, Mochila_3, Mochila_4, Mochila_5]),
 (
     (Nome_4==will, Mochila_3==branca);
     (Nome_3==will, Mochila_2==branca);
-    (Nome_2==will, Mochila_1==branca);
+    (Nome_2==will, Mochila_1==branca)
 ),
 
 % Joao gosta de historia
@@ -50,8 +50,8 @@ alldifferent([Mochila_1, Mochila_2, Mochila_3, Mochila_4, Mochila_5]),
     (Nome_1==joao, Materia_1==historia);
     (Nome_2==joao, Materia_2==historia);
     (Nome_4==joao, Materia_4==historia);
-    (Nome_5==joao, Materia_5==historia);
-)
+    (Nome_5==joao, Materia_5==historia)
+),
 
 % Mes
 
@@ -101,8 +101,14 @@ suco(Suco_5),
 (
     (Suco_2==uva, Materia_3==portugues);
     (Suco_4==uva, Materia_5==portugues)
-)
+),
 
+statistics(cputime, T2),
+
+Tempo is T2 - T1,
+write('Tempo de CPU: '), write(Tempo), write(' segundos'), nl.
+        
+    
 % Valores possiveis para cada atributo:
 
 %% Mochilas:
@@ -157,10 +163,5 @@ write('\n..........................\n'),
 write(H), write(':'),
 imprime_lista(T).
 
-statistics(cputime, T2),
 
-Tempo is T2 - T1,
-write('Tempo de CPU: '), write(Tempo), write(' segundos'), nl.
-
-?-main.
 
