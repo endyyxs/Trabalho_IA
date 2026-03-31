@@ -162,6 +162,3 @@ imprime_lista([H|T]):-
 write('\n..........................\n'),
 write(H), write(':'),
 imprime_lista(T).
-
-
-?- main.
