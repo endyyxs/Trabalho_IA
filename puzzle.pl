@@ -5,8 +5,15 @@
 medir_tempo :-
     statistics(cputime, T1),
 
+    (resolver_enigma(solucao) -> write('\n=== Solucao encontrada ===\n'),
+    imprime_lista(solucao)
+    ;
+    write('\n Erro: Nenhuma solucao possivel (contradicao das pistas) ===\n')
+    ),
+
 % Predicado modelo/1
 
+resolver_enigma(solucao) :-
 solucao = [
     (Mochila_1, Nome_1, Mes_1, Jogo_1, Materia_1, Suco_1),
     (Mochila_2, Nome_2, Mes_2, Jogo_2, Materia_2, Suco_2),
