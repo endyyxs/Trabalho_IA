@@ -6,7 +6,7 @@ main :-
 
 mochila(amarela). mochila(azul). mochila(branca). mochila(verde). mochila(vermelha).
 nome(denis). nome(joao). nome(lenin). nome(otavio). nome(will).
-mes(dezembro). mes(fevereiro). mes(janeiro). mes(maio). mes(setembro).
+mes(dezembro). mes(agosto). mes(janeiro). mes(maio). mes(setembro).
 jogo(tres_ou_mais). jogo(cubo_vermelho). jogo(jogo_da_forca). jogo(problemas_de_logica). jogo(caca_palavras).
 materia(biologia). materia(geografia). materia(historia). materia(matematica). materia(portugues).
 suco(laranja). suco(limao). suco(maracuja). suco(morango). suco(uva).
