@@ -7,7 +7,7 @@ main :-
 mochila(amarela). mochila(azul). mochila(branca). mochila(verde). mochila(vermelha).
 nome(denis). nome(joao). nome(lenin). nome(otavio). nome(will).
 mes(dezembro). mes(fevereiro). mes(janeiro). mes(maio). mes(setembro).
-jogo(tres_ou_mais). jogo(cubo_vermelho). jogo(jogo_da_forca). jogo(problemas_de_logica). jogo(xadrez).
+jogo(tres_ou_mais). jogo(cubo_vermelho). jogo(jogo_da_forca). jogo(problemas_de_logica). jogo(caca_palavras).
 materia(biologia). materia(geografia). materia(historia). materia(matematica). materia(portugues).
 suco(laranja). suco(limao). suco(maracuja). suco(morango). suco(uva).
 
@@ -53,9 +53,16 @@ modelo([
     Jogo_3 = jogo_da_forca,
     jogo(Jogo_1), jogo(Jogo_2), jogo(Jogo_4), jogo(Jogo_5),
 
-    % O garoto que gosta do jogo da forca esta ao lado do que gosta do 3 ou mais
+    % Em uma das pontas esta o menino que adora jogar cubo vermelho
     ( Jogo_1 = cubo_vermelho ; Jogo_5 = cubo_vermelho ),
-    ( Jogo_2 = tres_ou_mais ; Jogo_4 = tres_ou_mais ),
+
+    % O garoto que gosta do jogo da forca esta ao lado do que gosta do 3 ou mais
+    (
+      ( Jogo_2 = tres_ou_mais,Jogo_1=jogo_da_forca ) ; 
+      ( Jogo_2 = tres_ou_mais,Jogo_3=jogo_da_forca ) ; 
+      ( Jogo_4 = tres_ou_mais,Jogo_3=jogo_da_forca ) ;
+      ( Jogo_4 = tres_ou_mais,Jogo_5=jogo_da_forca ) 
+    ),
     alldifferent([Jogo_1, Jogo_2, Jogo_3, Jogo_4, Jogo_5]),
 
     % Meses
